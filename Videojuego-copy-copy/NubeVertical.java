@@ -18,5 +18,25 @@ public class NubeVertical extends Actor
     public void act()
     {
         getImage().scale(50,100);
+        barrera();
+        barrera2();
     }
+    public void barrera(){
+        Actor pro= getOneIntersectingObject(Proyectil.class);
+        Actor car = getOneIntersectingObject(Jugador1.class);
+        if(pro!=null){
+            getWorld().removeObject(pro);
+        
+        }
+
+    }  
+    public void barrera2(){
+        Actor pro= getOneIntersectingObject(Proyectil2.class);
+        Actor car = getOneIntersectingObject(Jugador1.class);
+        if(pro!=null){
+            getWorld().removeObject(pro);
+        
+        }
+
+    }   
 }

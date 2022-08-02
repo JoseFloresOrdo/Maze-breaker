@@ -11,4 +11,6 @@ comment4.params=
 comment4.target=void\ moveAround()
 comment5.params=
 comment5.target=int\ getRotacion()
-numComments=6
+comment6.params=seguir
+comment6.target=void\ setSeguir(boolean)
+numComments=7

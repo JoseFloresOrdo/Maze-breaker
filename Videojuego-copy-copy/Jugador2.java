@@ -21,12 +21,12 @@ public class Jugador2 extends Actor
     public void act()
     {
         moveAround();
-        fireProjectile();
+        fireProjectile2();
     }
-    public void fireProjectile()
+    public void fireProjectile2()
     {
         if (Greenfoot.isKeyDown("p") && disparo==true){
-            getWorld().addObject(new Proyectil(),getX() +5,getY());
+            getWorld().addObject(new Proyectil2(),getX() +10,getY());
             disparo=false;
         } else if (!Greenfoot.isKeyDown("p") && disparo==false){
             disparo=true;
@@ -39,26 +39,37 @@ public class Jugador2 extends Actor
         {
             setRotation(270);
             setLocation(getX(),getY()-5);
-            rotacion=1;
+            rotacion=5;
         }
         if (Greenfoot.isKeyDown("left"))
         {
             setRotation(180);
             setLocation(getX()-5,getY());
-            rotacion=2;
+            rotacion=6;
         }
         if (Greenfoot.isKeyDown("right"))
         {
             setRotation(0);
             setLocation(getX()+5,getY());
-            rotacion=3;
+            rotacion=7;
         }
         if (Greenfoot.isKeyDown("down"))
         {
             setRotation(90);
             setLocation(getX(),getY()+5);
-            rotacion=4;
+            rotacion=8;
         }
+        if (getOneIntersectingObject(NubeHorizontal.class) !=null){
+            move(-5);
+        }
+        if (getOneIntersectingObject(NubeVertical.class) !=null){
+            move(-5);
+        }
+    }
+    public int getRotacion(){
+        
+        return rotacion;
+        
     }
     public void removeEnemy(){
         if (getY()==0){

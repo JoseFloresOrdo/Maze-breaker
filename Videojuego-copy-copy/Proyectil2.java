@@ -1,20 +1,20 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Proyectil here.
+ * Write a description of class Proyectil2 here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Proyectil extends Actor
+public class Proyectil2 extends Actor
 {
     /**
-     * Act - do whatever the Proyectil wants to do. This method is called whenever
+     * Act - do whatever the Proyectil2 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     GifImage gif1= new GifImage("Proyectil.gif");
     
-    public Proyectil(){
+    public Proyectil2(){
         setImage(gif1.getCurrentImage());
         getImage().scale(40,14);
     }
@@ -23,7 +23,7 @@ public class Proyectil extends Actor
         getImage().scale(40,14);
         setImage(gif1.getCurrentImage());
         ProjectileMove();
-        rotationProjectile();
+        rotationProjectile2();
         removeEnemy();
         removeFromWorld();
     }
@@ -47,19 +47,19 @@ public class Proyectil extends Actor
     }
     public void rotationProjectile(){
         Jugador1 jugador1= getWorld().getObjects(Jugador1.class).get(0);
-        if (jugador1.getRotacion()==1){
+        if (jugador1.getRotacion()==5){
             setRotation(270);
             setLocation(getX(),getY() -20);
         }
-        else if (jugador1.getRotacion()==2){
+        else if (jugador1.getRotacion()==6){
             setRotation(180);
             setLocation(getX() -20,getY());
         }
-        else if (jugador1.getRotacion()==3){
+        else if (jugador1.getRotacion()==7){
             setRotation(0);
             setLocation(getX() +20,getY());
         }
-        else if (jugador1.getRotacion()==4){
+        else if (jugador1.getRotacion()==8){
             setRotation(90);
             setLocation(getX(),getY()+20);
         }
@@ -86,12 +86,12 @@ public class Proyectil extends Actor
     }
     public void removeEnemy()
     {
-        Actor enemy = getOneIntersectingObject(Jugador2.class);
+        Actor enemy = getOneIntersectingObject(Jugador1.class);
         if (enemy != null)
         {
             getWorld().removeObject(enemy);
-            MyWorld.score1++;
-            getWorld().addObject(new Jugador2(),getX(),getY());
+            MyWorld.score2++;
+            getWorld().addObject(new Jugador1(),getX(),getY());
         }
         else if (getY()==0)
         {

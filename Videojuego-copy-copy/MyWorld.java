@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MyWorld extends World
 {
-
+public static int score1=0;
+public static int score2=0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -17,9 +18,19 @@ public class MyWorld extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(700, 700, 1); 
+        musica();
         prepare();
     }
-    
+    public void act()
+    {
+        showText("Score1: "+score1, 50,25);
+        showText("Score2: "+score2, 50,50);
+    if ((score1 == 50)||(score2==50)){
+        GameOver gameover = new GameOver();
+        addObject(gameover,350,350);
+    }
+        
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -333,5 +344,8 @@ public class MyWorld extends World
         nubeHorizontal9.setLocation(389,641);
         nubeHorizontal9.setLocation(364,638);
         nubeHorizontal9.setLocation(379,641);
+    }
+    public void musica(){
+        Greenfoot.playSound("y2mate.com - Pacman theme remix  By Arsenic1987.mp3");
     }
 }

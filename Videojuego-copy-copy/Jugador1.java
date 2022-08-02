@@ -14,6 +14,7 @@ public class Jugador1 extends Actor
      */
     private boolean disparo=true;
     private int rotacion=0;
+    private boolean seguir=true;
     public Jugador1(){
         getImage().scale(50,50);
     }
@@ -23,7 +24,7 @@ public class Jugador1 extends Actor
     }
     public void fireProjectile(){
         if (Greenfoot.isKeyDown("space") && disparo==true){
-            getWorld().addObject(new Proyectil(),getX() +5,getY());
+            getWorld().addObject(new Proyectil(),getX() +10,getY());
             disparo=false;
         } else if (!Greenfoot.isKeyDown("Space") && disparo==false){
             disparo=true;
@@ -32,7 +33,8 @@ public class Jugador1 extends Actor
     public void moveAround()
     {
         getImage().scale(50,50);
-        if (Greenfoot.isKeyDown("w"))
+        
+        if (Greenfoot.isKeyDown("w") && seguir==true)
         {
             setRotation(270);
             setLocation(getX(),getY()-5);
@@ -56,11 +58,23 @@ public class Jugador1 extends Actor
             setLocation(getX(),getY()+5);
             rotacion=4;
         }
-        
-        
+        if (getOneIntersectingObject(NubeHorizontal.class) !=null){
+            move(-5);
+        }
+        if (getOneIntersectingObject(NubeVertical.class) !=null){
+            move(-5);
+        }
     }
     public int getRotacion(){
-            return rotacion;
-            
-        }
+        
+        return rotacion;
+        
+    }
+    public void setSeguir(boolean seguir){
+        
+        this.seguir=seguir;
+        
+    }
+    
 }
+    
