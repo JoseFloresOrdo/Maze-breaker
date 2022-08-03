@@ -93,9 +93,5 @@ public class Proyectil extends Actor
             MyWorld.score1++;
             getWorld().addObject(new Jugador2(),getX(),getY());
         }
-        else if (getY()==0)
-        {
-            getWorld().removeObject(this);
-        }
     }
 }
